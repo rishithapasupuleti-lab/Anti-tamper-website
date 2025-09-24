@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - WeighSaver</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #f9fafc; color: #333; }
+    header { background: #2c3e50; color: white; padding: 15px; text-align: center; }
+    nav { background: #34495e; display: flex; justify-content: center; gap: 20px; padding: 10px; }
+    nav a { color: white; text-decoration: none; font-weight: bold; }
+    nav a:hover { text-decoration: underline; }
+    section { max-width: 800px; margin: auto; padding: 30px; }
+    form { display: flex; flex-direction: column; gap: 15px; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+    input, textarea, select, button { padding: 10px; border-radius: 5px; border: 1px solid #ccc; }
+    button { background: #2c3e50; color: white; font-weight: bold; cursor: pointer; }
+    button:hover { background: #1a242f; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>ElectroNauts</h1>
+    <p>Get in Touch with Us</p>
+  </header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="history.html">History</a>
+    <a href="contact.html">Contact</a>
+    <a href="help.html">Help</a>
+  </nav>
+
+  <section>
+    <h2>📩 Contact Information</h2>
+    <p>Email: <a href="mailto:electronauts@gmail.com">electronauts@gmail.com</a></p>
+    <p>Phone: <a href="tel:+919887095667">+91 9887095667</a></p>
+
+    <h2>📝 Submit a Complaint or Query</h2>
+    <form onsubmit="alert('Your message has been submitted. Thank you!'); return false;">
+      <input type="text" placeholder="Full Name" required>
+      <input type="email" placeholder="Email Address" required>
+      <input type="text" placeholder="Phone Number (optional)">
+      <select required>
+        <option value="">Select Category</option>
+        <option>Complaint</option>
+        <option>Feedback</option>
+        <option>General Query</option>
+      </select>
+      <textarea rows="5" placeholder="Your Message..." required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+</body>
+</html>

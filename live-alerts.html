@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WeighSaver - Live Alerts</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .alerts-container {
+      margin: 30px auto;
+      max-width: 700px;
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .alerts-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .device-widget {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+    .device-widget input {
+      padding: 10px;
+      width: 70%;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-right: 10px;
+    }
+    .device-widget button {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 6px;
+      background: #007bff;
+      color: #fff;
+      cursor: pointer;
+    }
+    .device-widget button:hover {
+      background: #0056b3;
+    }
+    .alert-feed {
+      margin-top: 20px;
+    }
+    .alert {
+      background: #ffecec;
+      border-left: 5px solid #e74c3c;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+    .alert span {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>WeighSaver</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="history.html">History</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="help.html">Help</a>
+      <a href="live-alerts.html">Live Alerts</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="alerts-container">
+      <h2>Live Alerts</h2>
+
+      <!-- Device ID Widget -->
+      <div class="device-widget">
+        <h3>Check Device History</h3>
+        <input type="text" id="deviceIdInput" placeholder="Enter Device ID">
+        <button onclick="redirectToHistory()">Search</button>
+      </div>
+
+      <!-- Live Alerts Feed -->
+      <div class="alert-feed" id="alertFeed">
+        <h3>Recent Alerts</h3>
+        <div class="alert"><span>[2025-09-24 08:15]</span> Device 12345 - ⚠️ Magnetic Tamper Detected (Hyderabad)</div>
+        <div class="alert"><span>[2025-09-23 21:30]</span> Device 67890 - 🔄 Device Restarted (Chennai)</div>
+        <div class="alert"><span>[2025-09-23 15:05]</span> Device 12345 - ⚡ Circuit Change Detected (Vijayawada)</div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 WeighSaver | All rights reserved</p>
+  </footer>
+
+  <script>
+    function redirectToHistory() {
+      const deviceId = document.getElementById('deviceIdInput').value.trim();
+      if (!deviceId) {
+        alert("⚠️ Please enter a Device ID");
+        return;
+      }
+      window.location.href = `history.html?deviceId=${deviceId}`;
+    }
+
+    // Mock live alerts (later can connect to Firebase/MQTT)
+    const alerts = [
+      "Device 99999 - ⚠️ Magnetic Tamper Detected (Delhi)",
+      "Device 24680 - ⚡ Circuit Change Detected (Pune)",
+      "Device 13579 - 🔋 Power Failure Detected (Mumbai)"
+    ];
+
+    function addLiveAlert() {
+      const feed = document.getElementById("alertFeed");
+      const alertMsg = alerts[Math.floor(Math.random() * alerts.length)];
+      const time = new Date().toLocaleString();
+      const newAlert = document.createElement("div");
+      newAlert.className = "alert";
+      newAlert.innerHTML = `<span>[${time}]</span> ${alertMsg}`;
+      feed.prepend(newAlert);
+    }
+
+    // Add a new random alert every 20 seconds (demo mode)
+    setInterval(addLiveAlert, 20000);
+  </script>
+</body>
+</html>
