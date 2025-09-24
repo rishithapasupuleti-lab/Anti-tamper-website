@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WeighSaver - Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>WeighSaver</h1>
+    <p>Know the True Weight</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="help.html">Help</a>
+    <a href="live-alerts.html">Live Alerts</a>
+  </nav>
+
+  <div class="container">
+    <h2>Welcome to WeighSaver ⚖️</h2>
+    <p>Your trusted partner in detecting and preventing tampering in weighing machines.</p>
+
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Balance_scale_2009.jpg" 
+         alt="Balance Scale" 
+         style="width:100%; max-width:500px; display:block; margin:auto; border-radius:8px;">
+
+    <h3>Check Device History</h3>
+    <p>Enter your Device ID below to view its history and tampering records:</p>
+    <input type="text" id="deviceId" placeholder="Enter Device ID">
+    <button onclick="checkHistory()">Get Device Info</button>
+    <p id="result"></p>
+  </div>
+
+  <script>
+    function checkHistory() {
+      const id = document.getElementById("deviceId").value;
+      if(id.trim() === "") {
+        document.getElementById("result").innerText = "❌ Please enter a valid Device ID.";
+      } else {
+        document.getElementById("result").innerText = `✅ Device ${id}: No tampering detected.`;
+      }
+    }
+  </script>
+</body>
+</html>

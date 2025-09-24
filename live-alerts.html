@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Alerts - WeighSaver</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Live Alerts</h1>
+    <p>Stay Updated in Real-Time</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="help.html">Help</a>
+    <a href="live-alerts.html">Live Alerts</a>
+  </nav>
+
+  <div class="container">
+    <h2>Check Alerts for Your Device</h2>
+    <input type="text" id="deviceAlertId" placeholder="Enter Device ID">
+    <button onclick="showAlert()">Get Alerts</button>
+    <p id="alertResult"></p>
+  </div>
+
+  <script>
+    function showAlert() {
+      const id = document.getElementById("deviceAlertId").value;
+      if(id.trim() === "") {
+        document.getElementById("alertResult").innerText = "❌ Please enter a valid Device ID.";
+      } else {
+        // Dummy live alert simulation
+        document.getElementById("alertResult").innerText = 
+          `⚠️ Device ${id}: Possible tampering detected at 10:35 AM today.`;
+      }
+    }
+  </script>
+</body>
+</html>
